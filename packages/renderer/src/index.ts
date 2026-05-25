@@ -385,5 +385,3 @@ export {
     SuperCompressedSplat,
     SogSplat,
 };
-
-export * as RenderCloud from '@manycore/aholo-render-cloud';

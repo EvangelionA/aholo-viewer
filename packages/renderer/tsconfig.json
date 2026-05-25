@@ -25,8 +25,7 @@
       "@qunhe/egs-splat-loader": ["../../external/egs-core/packages/loaders/splat-loader/build/index.d.ts"],
       "@qunhe/egs-splat-loader/*": ["../../external/egs-core/packages/loaders/splat-loader/build/*"],
       "@qunhe/egs-splat-utils": ["../../external/egs-core/packages/utils/splat-utils/build/index.d.ts"],
-      "@qunhe/egs-splat-utils/*": ["../../external/egs-core/packages/utils/splat-utils/build/*"],
-      "@manycore/aholo-render-cloud": ["../render-cloud/src/index.ts"]
+      "@qunhe/egs-splat-utils/*": ["../../external/egs-core/packages/utils/splat-utils/build/*"]
     }
   },
   "include": ["src"],
