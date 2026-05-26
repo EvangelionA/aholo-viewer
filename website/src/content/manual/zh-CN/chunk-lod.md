@@ -31,8 +31,8 @@ order: 8
 
 参考资料：
 
-- [gaussian-hierarchy](https://github.com/graphdeco-inria/gaussian-hierarchy/tree/main)
-- [NanoGS](https://github.com/saliteta/NanoGS)
+- [gaussian-hierarchy](https://repo-sam.inria.fr/fungraph/hierarchical-3d-gaussians/)
+- [NanoGS](https://saliteta.github.io/NanoGS/)
 
 ## `lod-meta.json`格式说明
 
