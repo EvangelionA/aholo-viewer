@@ -4,6 +4,29 @@
 
 Monorepo for the Aholo Viewer package and its documentation website.
 
+## What is Aholo Viewer
+
+Aholo Viewer is a high performance Renderer for 3DGS and Mesh. It uses `Chunked Steaming Lod` schema to handle huge 3DGS.
+
+## Usage
+
+Follow the [Manual](https://aholojs.dev/en-US/manual/getting-started/).
+
+If everything goes well you will see [this](https://jsfiddle.net/q93yx8sr/2/)
+
+## Build Requirements
+
+- Node: >= 22.22.1
+- pnpm(corepack preferred)
+
+## Clone this repository
+
+This repository has some submodule as it's dependencies, use following command to clone the repository.
+
+```bash
+git clone --recurse-submodules https://github.com/manycoretech/aholo-viewer.git
+```
+
 ## Structure
 
 ```text
@@ -85,7 +108,16 @@ Opening a URL with `code` restores the editor content automatically.
 
 Examples are stored in `website/src/content/examples/` as paired `<slug>.json` metadata and `<slug>.ts` source files. The same slug powers the Examples pages and Playground `example` query parameter.
 
+## Contributors
+
+<a href="https://github.com/manycoretech/aholo-viewer/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=manycoretech/aholo-viewer" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 ## Useful Links
 
 - [Discussions](https://github.com/manycoretech/aholo-viewer/discussions)
 - [Official website](https://aholojs.dev/)
+- [CHANGELOG](./packages//CHANGELOG.md)
