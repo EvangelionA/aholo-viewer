@@ -1,16 +1,15 @@
 ---
+interface SidebarItemInput {
+  href?: string;
+  label: string;
+  description?: string;
+  searchText?: string;
+  items?: SidebarItemInput[];
+}
+
 interface Props {
   currentPath: string;
-  items: Array<{
-    href?: string;
-    label: string;
-    description?: string;
-    items?: Array<{
-      href?: string;
-      label: string;
-      description?: string;
-    }>;
-  }>;
+  items: SidebarItemInput[];
   search?: {
     label: string;
     empty: string;
@@ -20,8 +19,8 @@ interface Props {
 const { currentPath, items, search } = Astro.props;
 const hasActiveContent = Astro.slots.has('activeContent');
 
-const getSearchText = (item: { label: string; description?: string }) =>
-  [item.label, item.description].filter(Boolean).join(' ');
+const getSearchText = (item: { label: string; description?: string; searchText?: string }) =>
+  [item.label, item.description, item.searchText].filter(Boolean).join(' ');
 ---
 
 <aside class="docs-sidebar" aria-label="Document navigation" data-docs-sidebar>
@@ -108,6 +107,7 @@ const getSearchText = (item: { label: string; description?: string }) =>
       .split(/[^a-zA-Z0-9]+/)
       .map(term => normalizeSidebarSearchText(term))
       .filter(Boolean);
+  const getSidebarSearchCompactText = (value: string) => getSidebarSearchTerms(value).join('');
   const getDocsSidebarSearchStorageKey = () => {
     const [locale = 'root', section = 'docs'] = window.location.pathname.split('/').filter(Boolean);
 
@@ -163,10 +163,14 @@ const getSearchText = (item: { label: string; description?: string }) =>
     clearDocsSidebarSearchValue(storageKey);
     let isSearching = false;
 
-    const itemMatches = (item: HTMLElement, tokens: string[]) => {
-      const terms = getSidebarSearchTerms(item.dataset.docsSidebarSearchText ?? item.textContent ?? '');
+    const itemMatches = (item: HTMLElement, tokens: string[], compactQuery: string) => {
+      const searchText = item.dataset.docsSidebarSearchText ?? item.textContent ?? '';
+      const terms = getSidebarSearchTerms(searchText);
 
-      return tokens.every(token => terms.some(term => term.startsWith(token)));
+      return (
+        getSidebarSearchCompactText(searchText).includes(compactQuery) ||
+        tokens.every(token => terms.some(term => term.startsWith(token)))
+      );
     };
     const syncActiveContentVisibility = (item: HTMLElement, visible: boolean) => {
       const activeContent = item.nextElementSibling;
@@ -177,7 +181,8 @@ const getSearchText = (item: { label: string; description?: string }) =>
     };
 
     const applySearch = () => {
-      const tokens = normalizeSidebarSearchText(input.value).split(/\s+/).filter(Boolean);
+      const tokens = getSidebarSearchTerms(input.value);
+      const compactQuery = getSidebarSearchCompactText(input.value);
       const hasQuery = tokens.length > 0;
       let visibleCount = 0;
 
@@ -197,7 +202,7 @@ const getSearchText = (item: { label: string; description?: string }) =>
       isSearching = hasQuery;
 
       for (const item of directItems) {
-        const matches = !hasQuery || itemMatches(item, tokens);
+        const matches = !hasQuery || itemMatches(item, tokens, compactQuery);
         item.hidden = !matches;
         syncActiveContentVisibility(item, matches);
         if (matches) {
@@ -210,7 +215,7 @@ const getSearchText = (item: { label: string; description?: string }) =>
         let visibleChildren = 0;
 
         for (const child of children) {
-          const matches = !hasQuery || itemMatches(child, tokens);
+          const matches = !hasQuery || itemMatches(child, tokens, compactQuery);
           child.hidden = !matches;
           syncActiveContentVisibility(child, matches);
           if (matches) {

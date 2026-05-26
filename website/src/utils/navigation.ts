@@ -15,6 +15,7 @@ export interface SidebarItem {
     href?: string;
     label: string;
     description?: string;
+    searchText?: string;
     items?: SidebarItem[];
 }
 
@@ -34,6 +35,7 @@ export function apiSidebarItems(locale: Locale): SidebarItem[] {
             label: entry.title,
             description:
                 entry.namespaceLabel === group.label ? entry.kindLabel : `${entry.namespaceLabel} / ${entry.kindLabel}`,
+            searchText: [entry.namespaceLabel, entry.categoryLabel, entry.kindLabel].join(' '),
         })),
     }));
 }

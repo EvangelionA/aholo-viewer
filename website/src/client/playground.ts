@@ -710,10 +710,6 @@ function normalizeRefreshRate(value: number) {
     return Number.isFinite(value) && value > 0 ? value : DEFAULT_REFRESH_RATE;
 }
 
-function normalizeFps(value: number, fallback: number) {
-    return Number.isFinite(value) && value >= 0 ? value : fallback;
-}
-
 function readCodeFromUrl(params: URLSearchParams) {
     const encodedCode = params.get(CODE_QUERY_PARAM);
 
