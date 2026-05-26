@@ -31,8 +31,8 @@ Rendering large-scale `3DGS` scenes requires far more system resources than most
 
 References:
 
-- [gaussian-hierarchy](https://repo-sam.inria.fr/fungraph/hierarchical-3d-gaussians/)
-- [NanoGS](https://saliteta.github.io/NanoGS/)
+- [A Hierarchical 3D Gaussian Representation for Real-Time Rendering of Very Large Datasets](https://repo-sam.inria.fr/fungraph/hierarchical-3d-gaussians/)
+- [NanoGS: Training-Free Gaussian Splat Simplification](https://saliteta.github.io/NanoGS/)
 
 ## `lod-meta.json` Format
 
