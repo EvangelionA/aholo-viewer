@@ -116,8 +116,26 @@ Examples are stored in `website/src/content/examples/` as paired `<slug>.json` m
 
 Made with [contrib.rocks](https://contrib.rocks).
 
+## Star History
+
+<a href="https://www.star-history.com/?repos=manycoretech%2Faholo-viewer&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=manycoretech/aholo-viewer&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=manycoretech/aholo-viewer&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=manycoretech/aholo-viewer&type=date&legend=top-left" />
+ </picture>
+</a>
+
 ## Useful Links
 
 - [Discussions](https://github.com/manycoretech/aholo-viewer/discussions)
 - [Official website](https://aholojs.dev/)
 - [CHANGELOG](./packages//CHANGELOG.md)
+
+## License
+
+Unless otherwise noted, most code in this repository is released under the [MIT License](./LICENSE).
+
+Exceptions include:
+
+- `external/splat-transform/`: proprietary and not open source. The tool may be used as distributed to generate or process content for commercial and non-commercial purposes, but the tool itself may not be copied, redistributed, repackaged, hosted, or republished. See [`external/splat-transform/COPYRIGHT.md`](./external/splat-transform/COPYRIGHT.md).

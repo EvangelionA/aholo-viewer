@@ -34,6 +34,6 @@ Commands:
   lod:auto-chunk [options] <input> <output>  Generate auto-chunk-lod for gaussian splat file
 ```
 
-## Notice
+## CopyRight
 
-The code of the tool(AKA. `@manycore/aholo-splat-transform`) is not open source, you may use the the tool to generate content for any purpose, but you cannot redistribute the tool.
+[CopyRight](./COPYRIGHT.md)

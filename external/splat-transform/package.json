@@ -15,6 +15,7 @@
   "files": [
     "dist/",
     "CHANGELOG.md",
+    "COPYRIGHT.md",
     "THIRD_PARTY_LICENSES.txt"
   ],
   "dependencies": {
