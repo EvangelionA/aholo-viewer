@@ -4,7 +4,7 @@ A 3DGS dev server
 
 ## Requirement
 
-- node >= 20.19.0
+- node >= 22.22.1
 
 ## Usage
 

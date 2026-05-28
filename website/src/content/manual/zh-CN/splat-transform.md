@@ -10,7 +10,7 @@ order: 5
 
 ## 环境需求
 
-- Node.js >= 20.19.0
+- Node.js >= 22.22.1
 - Windows: Windows 22H2+，x86_64，D3D12 或 Vulkan 兼容显卡。需要 GPU 功能时，建议使用独立显卡。
 - Linux: x86_64，glibc >= 2.34，libstdc++ >= 3.4.30，Vulkan 兼容显卡。需要 GPU 功能时，建议使用独立显卡。
 - macOS: 暂不支持。
