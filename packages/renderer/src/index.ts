@@ -48,6 +48,10 @@ export {
     FilterTarget,
     SplatState,
     BackgroundMode,
+    SourceTexture,
+    TextureDimension,
+    TextureViewDimension,
+    TextureFormat,
 
     // Math
     Box3,
@@ -375,13 +379,4 @@ export function setViewerConfig(ctx: Viewer | Viewport, config: IViewerConfig) {
     originSetViewerConfig(viewerConfig, ctx.config);
 }
 
-export {
-    TextureDimension,
-    TextureViewDimension,
-    TextureFormat,
-    SourceTexture,
-    InstancedBufferGeometry,
-    CompressedSplat,
-    SuperCompressedSplat,
-    SogSplat,
-};
+export { InstancedBufferGeometry, CompressedSplat, SuperCompressedSplat, SogSplat };
