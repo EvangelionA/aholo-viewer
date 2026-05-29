@@ -2841,7 +2841,7 @@ export class WalkThirdPersonCharacter {
         this.lifetime.abort();
         this.loadPromise = undefined;
         try {
-            this.viewer.unregisterPlugin(this.animationPlugin as never);
+            (this.viewer as any).unregisterPlugin(this.animationPlugin as never);
         } catch {
             /* ignore */
         }
@@ -2975,7 +2975,7 @@ class WalkDemoScene {
         this.viewer.setCamera(this.camera);
         this.scene.add(this.splatLayer);
 
-        const cul = this.viewer.defaultViewport.drivenCullingConfig;
+        const cul = (this.viewer as any).defaultViewport.drivenCullingConfig;
         cul.frustumCullingEnabled = false;
         cul.occlusionCullingEnabled = false;
         cul.detailCullingEnabled = false;
@@ -3102,7 +3102,7 @@ class WalkDemoScene {
         this.lodSplat.setConfig(config);
         this.camera.updateMatrixWorld(true);
         this.lodSplat.tick(this.camera);
-        this.viewer.forceNextFrameRender = true;
+        (this.viewer as any).forceNextFrameRender = true;
     }
 
     tickLod(): void {
@@ -3200,7 +3200,7 @@ class WalkDemoScene {
         const t0 = performance.now();
         let pumps = 0;
         while (!state.ok && performance.now() - t0 < DENSE_SPLAT_STABILITY_PUMP_MAX_MS) {
-            this.viewer.forceNextFrameRender = true;
+            (this.viewer as any).forceNextFrameRender = true;
             this.viewer.render();
             pumps += 1;
             await new Promise<void>(r => requestAnimationFrame(() => r()));
@@ -3481,7 +3481,7 @@ function waitForWalkLodInitialSchedule(lodSplat: LodSplatInstance, viewer: Viewe
             }
             lodSplat.tick(viewer.getCamera());
             viewer.getScene().notifySceneChange();
-            viewer.forceNextFrameRender = true;
+            (viewer as any).forceNextFrameRender = true;
             viewer.render();
             frameId = window.requestAnimationFrame(pump);
         };
@@ -3737,7 +3737,7 @@ class WalkDemoApp {
         if (scheme.splatMode === 'lod') {
             sceneLoop.tickLod();
         }
-        this.#ctx.renderer.viewer.forceNextFrameRender = true;
+        (this.#ctx.renderer.viewer as any).forceNextFrameRender = true;
         if (this.#hideLoadingOnFrame) {
             this.#hideLoadingOnFrame = false;
             this.#ctx.loading.hide();
