@@ -1,5 +1,10 @@
 # ChangeLOG
 
+## DEV
+
+1. Features
+    - use `api-extractor` to rollup dts.
+
 ## 1.1.0
 
 1. Features
